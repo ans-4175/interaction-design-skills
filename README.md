@@ -35,7 +35,16 @@ It applies only the 2–5 laws that fit your problem. Reciting all seventeen wou
 
 ## Install
 
-Pick your speed:
+**Lazy mode: let your agent do it.** Paste this into Claude Code, Codex, pi, or whatever agent you're using:
+
+```text
+Install the interaction-design skill from https://github.com/ans-4175/interaction-design-skills.
+Read its README first. Use `npx skills add ans-4175/interaction-design-skills` if Node is available,
+otherwise run the curl one-liner from the README. Don't overwrite any existing skill folder.
+Afterwards, confirm where SKILL.md landed and tell me to restart the session and run /interaction-design.
+```
+
+Or pick your speed yourself:
 
 **One command, via [skills.sh](https://skills.sh)** (needs Node)
 ```bash
