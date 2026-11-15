@@ -59,3 +59,8 @@ Severity combines **frequency** (how many users and how often), **impact** (how 
 - Motion: is `prefers-reduced-motion` respected? Is anything flashing?
 - Mobile: targets ≥44pt, thumb reach, no hover-only actions, no horizontal scroll.
 - Copy: specific labels such as "Save changes" (not "OK"); blame-free errors; consistent terms.
+- **One term per concept** across the flow (action, result, place). Collect the words used for each step; three names for one thing is a finding.
+- **Leaked internals**: dev or placeholder copy ("in local mode…", "not available in this version"), raw IDs/UUIDs, ISO dates, enum values, transport status ("polling", "reconnecting") shown to end users.
+- **Negative copy**: sentences explaining what does *not* happen, repeated across screens. Replace them with the next step.
+- **Feedback lifetime**: success and error messages stay with the thing they describe. Watch for one that persists after navigating to another section, or that sits far from the triggering control.
+- **Contradictions**: two messages on the same screen that can't both be true (for example "you are not registered" next to a valid entry link).

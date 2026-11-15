@@ -47,12 +47,13 @@ Apply only 2–5 principles to any one problem. Listing every law is noise.
 3. **Interaction**: for each key action give the trigger, the rules, the feedback and the result. Use the conventional pattern unless there is a stated reason not to (Jakob).
 4. **States**: empty, loading, partial, error, success, no-permission, offline where relevant (`states.md`). Each state needs a way out.
 5. **Edges**: errors and recovery, long or missing content, first use vs. repeat use, keyboard and screen-reader access.
-6. **Output**: a short spec. Cover structure, interactions, a state table, copy for key moments and open questions. Tag each design choice with the principle behind it, e.g. `(Hick)` or `(Tesler)`.
+6. **Output**: a short spec. Cover structure, interactions, a state table, copy for key moments and open questions. Tag each design choice with the principle behind it, e.g. `(Hick)` or `(Tesler)`. Include an ASCII wireframe of each key screen and the flow between them (see *Wireframes*).
 
 ## AUDIT — review a screen, flow, or implementation
 
 1. **Scope**: which screens, flows or tasks are in scope. Walk the primary task as a first-time user, then as a frequent user.
-2. **Inspect** the real thing: a screenshot, the running app (anoa for browsing) or the code. Do not audit from memory.
+   - **Trace across roles.** When a task spans people (trainer shows a QR → participant scans; requester submits → approver acts), walk both sides. The root cause often sits on the other role's screen, such as the wrong artifact being shown or shared.
+2. **Inspect** the real thing: the running app (drive it with a browser tool) and the code. Do not audit from memory. Live evidence finds what code misses (layout below the fold, stale messages, real copy); code finds states you can't trigger. Use both when you can.
 3. **Check** against `heuristics.md`, then the relevant laws and patterns. Pay extra attention to the unhappy paths: errors, empty states, slow network, expired session.
 4. **Report** findings ranked by severity:
 
@@ -64,6 +65,16 @@ Fix: <specific change>
 ```
 
 Severity: S4 blocks the task or loses data · S3 major friction or a frequent error · S2 minor · S1 cosmetic. Put the strengths that must be kept at the end, in one or two lines. Do not pad the report: five real findings beat twenty generic ones.
+
+For every **S3/S4** finding, and any fix that changes layout or flow, add a **before → after** ASCII wireframe (see *Wireframes*). When findings become tickets, the wireframe goes into the ticket too, so the builder doesn't have to reconstruct the layout from prose.
+
+## Wireframes
+
+Use plain ASCII inside a code block so it renders in chat, Markdown and issue trackers. Keep it at low fidelity: show structure, order, the primary action and the copy that matters; leave out styling.
+
+- **Screen:** a box at the target width (≈36 chars for mobile, ≈72 for desktop). Mark the fold with `┄┄ fold ┄┄` when position matters, show the primary action as `[ Action ]` and secondary ones as `( action )`, and mark removed elements `~~like this~~` or with a `✕` note.
+- **Flow:** `screen → screen` steps on one line, with the trigger on the arrow when it isn't obvious (`scan QR → login → [OTP] → name+confirm → ✓ done`). Count the steps before and after.
+- One wireframe per decision. Don't draw screens that don't change.
 
 ## DECIDE — choose between options
 
