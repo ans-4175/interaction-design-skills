@@ -35,15 +35,30 @@ It applies only the 2–5 laws that fit your problem. Reciting all seventeen wou
 
 ## Install
 
+Pick your speed:
+
+**One command, via [skills.sh](https://skills.sh)** (needs Node)
+```bash
+npx skills add ans-4175/interaction-design-skills
+```
+
+**One command, no Node, no clone**
+```bash
+curl -fsSL https://raw.githubusercontent.com/ans-4175/interaction-design-skills/main/install.sh | bash
+# changed your mind:
+curl -fsSL https://raw.githubusercontent.com/ans-4175/interaction-design-skills/main/install.sh | bash -s -- --uninstall
+```
+
+**Clone it if you plan to tinker**
 ```bash
 git clone https://github.com/ans-4175/interaction-design-skills ~/workspaces/interaction-design
 cd ~/workspaces/interaction-design
 ./install.sh             # symlink: edit the repo, the agent sees it immediately
 ./install.sh --copy      # copy, for machines where the repo won't stay
-./install.sh --uninstall # remove the symlinks it created
+./install.sh --uninstall # remove what it installed
 ```
 
-It links into `~/.agents/skills`, `~/.claude/skills` and `$CLAUDE_CONFIG_DIR/skills` (if set). It never overwrites a real folder.
+`install.sh` installs into `~/.agents/skills`, `~/.claude/skills` and `$CLAUDE_CONFIG_DIR/skills` (if set). It never overwrites a folder it didn't create. Re-run the curl line to update.
 
 **It speaks only when spoken to.** The skill sets `disable-model-invocation: true`, so it stays out of your context until you type `/interaction-design`. To let your agent call it on its own, delete that line from `SKILL.md`.
 
